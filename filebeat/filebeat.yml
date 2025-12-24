@@ -1,0 +1,46 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /logs/syslog.log
+    parsers:
+      - syslog:
+    processors:
+      - add_tags:
+          tags: ["syslog"]
+
+  - type: log
+    enabled: true
+    paths:
+      - /logs/keyvalue.log
+    processors:
+      - dissect:
+          tokenizer: "timestamp=%{timestamp} level=%{level} user=%{user} action=%{action} status=%{status}"
+          field: "message"
+      - add_tags:
+          tags: ["keyvalue"]
+
+  - type: log
+    enabled: true
+    paths:
+      - /logs/json.log
+    json.keys_under_root: true
+    json.add_error_key: true
+    processors:
+      - add_tags:
+          tags: ["json"]
+
+  - type: log
+    enabled: true
+    paths:
+      - /logs/data.csv
+    processors:
+      - decode_csv_fields:
+          fields:
+            message: csv
+          separator: ","
+      - add_tags:
+          tags: ["csv"]
+
+output.logstash:
+  hosts: ["logstash:5044"]

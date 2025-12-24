@@ -1,0 +1,2 @@
+timestamp,level,user,action,status
+2025-12-24T10:19:00Z,WARN,sachin,update,password_expired

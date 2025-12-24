@@ -1,0 +1,3 @@
+add metric beat as input
+heartbeat
+kafka

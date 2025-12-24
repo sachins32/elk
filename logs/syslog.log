@@ -1,0 +1,2 @@
+Dec 24 10:15:42 localhost systemd[1]: Started Session 1 of user root.
+Dec 24 10:16:01 localhost CRON[1234]: (root) CMD (run-parts /etc/cron.hourly)
