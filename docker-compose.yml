@@ -35,7 +35,7 @@ services:
     depends_on:
       - elasticsearch
     volumes:
-      - ./kibana/kibana.yml:/usr/share/kibana/config/kibana.yml
+      - ./kibana/kibana.yaml:/usr/share/kibana/config/kibana.yaml
 
   logstash:
     image: docker.elastic.co/logstash/logstash:8.17.0
