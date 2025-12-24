@@ -1,0 +1,9 @@
+# Allow Kibana to listen on all interfaces for EC2 access
+server.host: "0.0.0.0"
+server.name: "kibana"
+
+# Link to Elasticsearch (must match your compose network service name)
+elasticsearch.hosts: ["http://elasticsearch:9200"]
+
+# Add any other custom settings here
+# xpack.monitoring.ui.container.elasticsearch.enabled: true
