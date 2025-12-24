@@ -61,7 +61,7 @@ services:
       - logstash
     networks:
       - elk
-    command: sh -c "sleep 30 && filebeat -e -c /usr/share/filebeat/filebeat.yml"
+    command: sh -c "sleep 30 && filebeat -e --strict.perms=false -c /usr/share/filebeat/filebeat.yml"
 
 volumes:
   elasticsearch-data:
